@@ -31,7 +31,7 @@ class AlienInvasion:
             self.ship.update()
             self._update_bullets()
             self._update_screen()
-            self.clock.tick(300)
+            self.clock.tick(30)
 
     def _check_events(self):
         """Respond to keypresses and mouse events."""
@@ -64,6 +64,8 @@ class AlienInvasion:
     def _fire_bullet(self):
         """Create a new bullet and add it to the bullets group."""
         if len(self.bullets) < self.settings.bullets_allowed:
+            new_bullet = Bullet(self)
+            self.bullets.add(new_bullet)
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
 
